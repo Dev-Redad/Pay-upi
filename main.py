@@ -252,12 +252,11 @@ def start_purchase(ctx: CallbackContext, chat_id: int, uid: int, item_id: str):
     display_amt = int(amt) if abs(amt-int(amt))<1e-9 else f"{amt:.2f}"
 
     caption = (
-        f"Please pay ₹{display_amt}\n\n" for the file
-    "How to pay:\n"
-    "📱 Scan this QR in your UPI app (GPay / PhonePe / Paytm)\n"
-    f"🏦 Or pay manually to `{UPI_ID}`\n"
-    f"🏷️ Pay exactly ₹{display_amt} within {PAY_WINDOW_MINUTES} minutes\n"
-    "✅ Bot will Automatically send You files Once Payment Is Complete — ⏱ wait 5–10 seconds after payment."
+        f"Pay ₹{display_amt}\n"
+    "📱 Scan the QR in your UPI app (GPay/PhonePe/Paytm) or pay to "
+    f"`{UPI_ID}`\n"
+    f"⏱ Pay the exact amount within {PAY_WINDOW_MINUTES} min\n"
+    "✅ Files will be sent automatically after payment."
     )
 
     msg = ctx.bot.send_photo(
